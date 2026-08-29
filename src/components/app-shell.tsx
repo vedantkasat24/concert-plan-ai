@@ -16,7 +16,15 @@ import {
 import { ReasoningPanel } from "@/components/reasoning-panel";
 import { cn } from "@/lib/utils";
 
-const navGroups = [
+type NavItem = {
+  to: string;
+  label: string;
+  icon: typeof Home;
+  badge: string | null;
+};
+type NavGroup = { label: string | null; items: NavItem[] };
+
+const navGroups: NavGroup[] = [
   {
     label: null,
     items: [
@@ -41,7 +49,7 @@ const navGroups = [
       { to: "/analytics", label: "Analytics", icon: BarChart3, badge: null },
     ],
   },
-] as const;
+];
 
 const allNav = navGroups.flatMap((g) => g.items);
 
