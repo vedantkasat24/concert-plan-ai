@@ -12,7 +12,7 @@ import {
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
-import { reasoningByRoute } from "@/lib/demo-data";
+import { reasoningByRoute, type ReasoningContext } from "@/lib/demo-data";
 import { Badge, Button, ConfidencePill, Meter } from "@/components/kit";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +27,7 @@ function SectionTitle({ icon: Icon, children }: { icon: typeof Brain; children: 
 
 export function ReasoningPanel() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const ctx = reasoningByRoute[pathname] ?? reasoningByRoute["/"];
+  const ctx = (reasoningByRoute[pathname] ?? reasoningByRoute["/"]) as ReasoningContext;
   const [done, setDone] = useState(0);
   const [openEvidence, setOpenEvidence] = useState<number | null>(0);
 

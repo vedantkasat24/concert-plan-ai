@@ -46,7 +46,7 @@ function statusTone(s: string) {
 }
 
 function Plans() {
-  const [selected, setSelected] = useState(businessPlans[0].id);
+  const [selected, setSelected] = useState(businessPlans[0]!.id);
 
   return (
     <AppShell>

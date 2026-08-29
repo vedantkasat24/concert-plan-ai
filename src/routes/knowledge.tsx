@@ -85,7 +85,7 @@ function Knowledge() {
       </div>
 
       <div className="grid gap-3 md:grid-cols-2">
-        {content[tab].map((c) => (
+        {(content[tab] ?? []).map((c) => (
           <Card key={c.title} className="rise-in transition-shadow duration-200 hover:shadow-[var(--shadow-panel)]">
             <div className="flex items-start justify-between gap-3">
               <h2 className="text-sm font-semibold text-foreground">{c.title}</h2>
