@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as CopilotRouteImport } from './routes/copilot'
+import { Route as DealIntelligenceRouteImport } from './routes/deal-intelligence'
+import { Route as KnowledgeRouteImport } from './routes/knowledge'
+import { Route as LeadershipReviewRouteImport } from './routes/leadership-review'
+import { Route as NegotiationRouteImport } from './routes/negotiation'
+import { Route as PlanReviewRouteImport } from './routes/plan-review'
+import { Route as PlansRouteImport } from './routes/plans'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopilotRoute = CopilotRouteImport.update({
+  id: '/copilot',
+  path: '/copilot',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DealIntelligenceRoute = DealIntelligenceRouteImport.update({
+  id: '/deal-intelligence',
+  path: '/deal-intelligence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KnowledgeRoute = KnowledgeRouteImport.update({
+  id: '/knowledge',
+  path: '/knowledge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeadershipReviewRoute = LeadershipReviewRouteImport.update({
+  id: '/leadership-review',
+  path: '/leadership-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NegotiationRoute = NegotiationRouteImport.update({
+  id: '/negotiation',
+  path: '/negotiation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanReviewRoute = PlanReviewRouteImport.update({
+  id: '/plan-review',
+  path: '/plan-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlansRoute = PlansRouteImport.update({
+  id: '/plans',
+  path: '/plans',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/copilot': typeof CopilotRoute
+  '/deal-intelligence': typeof DealIntelligenceRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/leadership-review': typeof LeadershipReviewRoute
+  '/negotiation': typeof NegotiationRoute
+  '/plan-review': typeof PlanReviewRoute
+  '/plans': typeof PlansRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/copilot': typeof CopilotRoute
+  '/deal-intelligence': typeof DealIntelligenceRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/leadership-review': typeof LeadershipReviewRoute
+  '/negotiation': typeof NegotiationRoute
+  '/plan-review': typeof PlanReviewRoute
+  '/plans': typeof PlansRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/copilot': typeof CopilotRoute
+  '/deal-intelligence': typeof DealIntelligenceRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/leadership-review': typeof LeadershipReviewRoute
+  '/negotiation': typeof NegotiationRoute
+  '/plan-review': typeof PlanReviewRoute
+  '/plans': typeof PlansRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/analytics'
+    | '/copilot'
+    | '/deal-intelligence'
+    | '/knowledge'
+    | '/leadership-review'
+    | '/negotiation'
+    | '/plan-review'
+    | '/plans'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/analytics'
+    | '/copilot'
+    | '/deal-intelligence'
+    | '/knowledge'
+    | '/leadership-review'
+    | '/negotiation'
+    | '/plan-review'
+    | '/plans'
+  id:
+    | '__root__'
+    | '/'
+    | '/analytics'
+    | '/copilot'
+    | '/deal-intelligence'
+    | '/knowledge'
+    | '/leadership-review'
+    | '/negotiation'
+    | '/plan-review'
+    | '/plans'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  CopilotRoute: typeof CopilotRoute
+  DealIntelligenceRoute: typeof DealIntelligenceRoute
+  KnowledgeRoute: typeof KnowledgeRoute
+  LeadershipReviewRoute: typeof LeadershipReviewRoute
+  NegotiationRoute: typeof NegotiationRoute
+  PlanReviewRoute: typeof PlanReviewRoute
+  PlansRoute: typeof PlansRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copilot': {
+      id: '/copilot'
+      path: '/copilot'
+      fullPath: '/copilot'
+      preLoaderRoute: typeof CopilotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/deal-intelligence': {
+      id: '/deal-intelligence'
+      path: '/deal-intelligence'
+      fullPath: '/deal-intelligence'
+      preLoaderRoute: typeof DealIntelligenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/knowledge': {
+      id: '/knowledge'
+      path: '/knowledge'
+      fullPath: '/knowledge'
+      preLoaderRoute: typeof KnowledgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leadership-review': {
+      id: '/leadership-review'
+      path: '/leadership-review'
+      fullPath: '/leadership-review'
+      preLoaderRoute: typeof LeadershipReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/negotiation': {
+      id: '/negotiation'
+      path: '/negotiation'
+      fullPath: '/negotiation'
+      preLoaderRoute: typeof NegotiationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plan-review': {
+      id: '/plan-review'
+      path: '/plan-review'
+      fullPath: '/plan-review'
+      preLoaderRoute: typeof PlanReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plans': {
+      id: '/plans'
+      path: '/plans'
+      fullPath: '/plans'
+      preLoaderRoute: typeof PlansRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  CopilotRoute: CopilotRoute,
+  DealIntelligenceRoute: DealIntelligenceRoute,
+  KnowledgeRoute: KnowledgeRoute,
+  LeadershipReviewRoute: LeadershipReviewRoute,
+  NegotiationRoute: NegotiationRoute,
+  PlanReviewRoute: PlanReviewRoute,
+  PlansRoute: PlansRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
