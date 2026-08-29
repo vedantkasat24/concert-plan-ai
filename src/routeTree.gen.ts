@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CopilotRouteImport } from './routes/copilot'
 import { Route as DealIntelligenceRouteImport } from './routes/deal-intelligence'
+import { Route as KnowledgeRouteImport } from './routes/knowledge'
 import { Route as LeadershipReviewRouteImport } from './routes/leadership-review'
 import { Route as NegotiationRouteImport } from './routes/negotiation'
 import { Route as PlanReviewRouteImport } from './routes/plan-review'
@@ -30,6 +31,11 @@ const CopilotRoute = CopilotRouteImport.update({
 const DealIntelligenceRoute = DealIntelligenceRouteImport.update({
   id: '/deal-intelligence',
   path: '/deal-intelligence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KnowledgeRoute = KnowledgeRouteImport.update({
+  id: '/knowledge',
+  path: '/knowledge',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LeadershipReviewRoute = LeadershipReviewRouteImport.update({
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/copilot': typeof CopilotRoute
   '/deal-intelligence': typeof DealIntelligenceRoute
+  '/knowledge': typeof KnowledgeRoute
   '/leadership-review': typeof LeadershipReviewRoute
   '/negotiation': typeof NegotiationRoute
   '/plan-review': typeof PlanReviewRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/copilot': typeof CopilotRoute
   '/deal-intelligence': typeof DealIntelligenceRoute
+  '/knowledge': typeof KnowledgeRoute
   '/leadership-review': typeof LeadershipReviewRoute
   '/negotiation': typeof NegotiationRoute
   '/plan-review': typeof PlanReviewRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/copilot': typeof CopilotRoute
   '/deal-intelligence': typeof DealIntelligenceRoute
+  '/knowledge': typeof KnowledgeRoute
   '/leadership-review': typeof LeadershipReviewRoute
   '/negotiation': typeof NegotiationRoute
   '/plan-review': typeof PlanReviewRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/copilot'
     | '/deal-intelligence'
+    | '/knowledge'
     | '/leadership-review'
     | '/negotiation'
     | '/plan-review'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/copilot'
     | '/deal-intelligence'
+    | '/knowledge'
     | '/leadership-review'
     | '/negotiation'
     | '/plan-review'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/copilot'
     | '/deal-intelligence'
+    | '/knowledge'
     | '/leadership-review'
     | '/negotiation'
     | '/plan-review'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CopilotRoute: typeof CopilotRoute
   DealIntelligenceRoute: typeof DealIntelligenceRoute
+  KnowledgeRoute: typeof KnowledgeRoute
   LeadershipReviewRoute: typeof LeadershipReviewRoute
   NegotiationRoute: typeof NegotiationRoute
   PlanReviewRoute: typeof PlanReviewRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/deal-intelligence'
       fullPath: '/deal-intelligence'
       preLoaderRoute: typeof DealIntelligenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/knowledge': {
+      id: '/knowledge'
+      path: '/knowledge'
+      fullPath: '/knowledge'
+      preLoaderRoute: typeof KnowledgeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/leadership-review': {
@@ -179,6 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CopilotRoute: CopilotRoute,
   DealIntelligenceRoute: DealIntelligenceRoute,
+  KnowledgeRoute: KnowledgeRoute,
   LeadershipReviewRoute: LeadershipReviewRoute,
   NegotiationRoute: NegotiationRoute,
   PlanReviewRoute: PlanReviewRoute,
