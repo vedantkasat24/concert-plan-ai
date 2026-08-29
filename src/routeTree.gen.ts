@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CopilotRouteImport } from './routes/copilot'
 import { Route as DealIntelligenceRouteImport } from './routes/deal-intelligence'
 import { Route as NegotiationRouteImport } from './routes/negotiation'
+import { Route as PlanReviewRouteImport } from './routes/plan-review'
 import { Route as PlansRouteImport } from './routes/plans'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +36,11 @@ const NegotiationRoute = NegotiationRouteImport.update({
   path: '/negotiation',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlanReviewRoute = PlanReviewRouteImport.update({
+  id: '/plan-review',
+  path: '/plan-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PlansRoute = PlansRouteImport.update({
   id: '/plans',
   path: '/plans',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/copilot': typeof CopilotRoute
   '/deal-intelligence': typeof DealIntelligenceRoute
   '/negotiation': typeof NegotiationRoute
+  '/plan-review': typeof PlanReviewRoute
   '/plans': typeof PlansRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/copilot': typeof CopilotRoute
   '/deal-intelligence': typeof DealIntelligenceRoute
   '/negotiation': typeof NegotiationRoute
+  '/plan-review': typeof PlanReviewRoute
   '/plans': typeof PlansRoute
 }
 export interface FileRoutesById {
@@ -61,19 +69,33 @@ export interface FileRoutesById {
   '/copilot': typeof CopilotRoute
   '/deal-intelligence': typeof DealIntelligenceRoute
   '/negotiation': typeof NegotiationRoute
+  '/plan-review': typeof PlanReviewRoute
   '/plans': typeof PlansRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/copilot' | '/deal-intelligence' | '/negotiation' | '/plans'
+  fullPaths:
+    | '/'
+    | '/copilot'
+    | '/deal-intelligence'
+    | '/negotiation'
+    | '/plan-review'
+    | '/plans'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/copilot' | '/deal-intelligence' | '/negotiation' | '/plans'
+  to:
+    | '/'
+    | '/copilot'
+    | '/deal-intelligence'
+    | '/negotiation'
+    | '/plan-review'
+    | '/plans'
   id:
     | '__root__'
     | '/'
     | '/copilot'
     | '/deal-intelligence'
     | '/negotiation'
+    | '/plan-review'
     | '/plans'
   fileRoutesById: FileRoutesById
 }
@@ -82,6 +104,7 @@ export interface RootRouteChildren {
   CopilotRoute: typeof CopilotRoute
   DealIntelligenceRoute: typeof DealIntelligenceRoute
   NegotiationRoute: typeof NegotiationRoute
+  PlanReviewRoute: typeof PlanReviewRoute
   PlansRoute: typeof PlansRoute
 }
 
@@ -115,6 +138,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NegotiationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/plan-review': {
+      id: '/plan-review'
+      path: '/plan-review'
+      fullPath: '/plan-review'
+      preLoaderRoute: typeof PlanReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/plans': {
       id: '/plans'
       path: '/plans'
@@ -130,6 +160,7 @@ const rootRouteChildren: RootRouteChildren = {
   CopilotRoute: CopilotRoute,
   DealIntelligenceRoute: DealIntelligenceRoute,
   NegotiationRoute: NegotiationRoute,
+  PlanReviewRoute: PlanReviewRoute,
   PlansRoute: PlansRoute,
 }
 export const routeTree = rootRouteImport
