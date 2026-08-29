@@ -116,6 +116,23 @@ export function AppShell({ children }: { children: ReactNode }) {
             VK
           </span>
         </header>
+        <div className="flex gap-1.5 overflow-x-auto border-b border-border bg-card/60 px-4 py-2 md:hidden">
+          {allNav.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className={cn(
+                "whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-medium transition-colors",
+                pathname === item.to
+                  ? "bg-sidebar-accent text-sidebar-accent-foreground"
+                  : "text-muted-foreground hover:bg-sidebar-accent/50",
+              )}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
         <main className="flex-1 px-6 py-6">{children}</main>
       </div>
 
